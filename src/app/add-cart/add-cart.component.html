@@ -1,0 +1,23 @@
+<p>add-cart works!</p>
+<div>
+    <div class="product-card" *ngFor="let i of addCartDetail">
+        <div class="product-image">
+            <img src={{i.thumbnail}} alt="Product Image">
+        </div>
+        <div class="product-details">
+            <div class="product-title">{{i.brand}}</div>
+            <div class="product-description">{{i.description }}</div>
+            <div class="product-price">$.{{i.price}}</div>
+            <a class="buy-button">Buy Now</a>
+            <div class="img-data">
+                <div *ngFor="let j of i.images">
+                    <div class="cover-images">
+                        <img src={{j}}>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

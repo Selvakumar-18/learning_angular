@@ -1,0 +1,44 @@
+<div class="form-container">
+    <form [formGroup]="crudForm" (ngSubmit)="onSubmit()">
+        <label>First Name:</label>
+        <input type="text" formControlName="firstName">
+        
+        <div *ngIf="crudForm.get('firstName')?.invalid && crudForm.get('firstName')?.touched">
+          <div *ngIf="crudForm.get('firstName')?.hasError('required')">First Name is required.</div>
+        </div>
+        
+        <label >Last Name:</label>
+        <input type="text" formControlName="lastName">
+
+        <label >Contact Number:</label>
+        <input type="text" formControlName="contNumber" >
+
+        <label >Gmail:</label>
+        <input type="text" formControlName="gmail">
+
+        <button type="submit" >Submit</button>
+    </form>
+    <div>
+        <table>
+            <thead>
+              <th>Company</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>ContactNumber</th>
+              <th>Gmail</th>
+              <th>Test Case</th>
+            </thead>
+            <tbody *ngFor="let item of createData;let i = index">
+              <td>{{i+1}}</td>
+              <td>{{item.firstName}}</td>
+              <td>{{item.lastName}}</td>
+              <td>{{item.contNumber}}</td>
+              <td>{{item.gmail}}</td>
+              <div>
+                <button (click)="onEdit(i)">Edit</button>
+                <button (click)="deleteRow(i)">Delete</button>
+              </div>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="main">
+    
+    <div class="card">
+        <div class="img-holder">
+            <img src="../../assets/images/1280px-Strawberries (1).jpg" alt="straberry">
+        </div>
+        <div class="card_data">
+            <span class="title">Food Recipe</span>
+            <h3>How To Become a Chef</h3>
+            <p>{{a}}</p>
+            <span class="footer"><button (click)="clickMe(a)">Click Me</button></span>
+        </div>
+    </div>
+
+    <div *ngIf="showForm" class="form_design">
+        <h3>See Some Magic</h3>
+        <form [formGroup]="SurpriseForm" (ngSubmit)="onSubmit()">
+           
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" formControlName="firstName">
+        
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" formControlName="lastName">
+            <button type="submit">Submit</button>
+        </form>
+        <div *ngIf="!pop && combineData">
+            <h1>hey, {{combineData}} see Your Lucky fruit</h1>
+            <p>{{this.randomFruit.name}}</p>
+            <img [src]="this.randomFruit.src" alt="Person Image" class="randomFruitImg">
+        </div>
+    </div>
+</div>

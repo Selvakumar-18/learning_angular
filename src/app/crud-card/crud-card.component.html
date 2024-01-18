@@ -1,0 +1,39 @@
+
+<div class="top-bar">
+    <div class="search-container">
+        <input type="text" [(ngModel)]="filterValue" (input)="filterByTitle(filterValue)" placeholder="Filter by title">
+        <button type="button">Search</button>
+    </div>
+    <div class="notification-container" (click)="navigateToAnotherPage() ">
+        <div class="notification-icon">
+            <img src="../../assets/images/565422.png" alt="Notification Icon">
+            <span class="notification-badge">{{ this.cartLeng ? this.cartLeng : 0 }}</span>
+        </div>
+    </div>
+</div>
+
+<div class="product-card-container">
+    <div class="product-card" *ngFor="let i of productData">
+        <div class="product-image">
+            <img src={{i.thumbnail}} alt="Product Image">
+        </div>
+        <div class="product-details">
+            <div class="product-title">{{i.brand}}</div>
+            <div class="product-description">{{i.description }}</div>
+            <div class="product-price">$.{{i.price}}</div>
+            <a class="buy-button">Buy Now</a>
+            <a class="addCart-button" (click)="addCart(i)">Add to Cart</a>
+            <div class="img-data">
+                <div *ngFor="let j of i.images">
+                    <div class="cover-images">
+                        <img src={{j}}>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- <app-add-cart></app-add-cart> -->
